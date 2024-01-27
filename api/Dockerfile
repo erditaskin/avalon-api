@@ -1,4 +1,4 @@
-FROM node:18.16.0-alpine as dev
+FROM node:19.5.0-alpine as dev
 RUN apk --update add postgresql-client
 
 WORKDIR /usr/src/api
@@ -13,7 +13,7 @@ COPY . .
 
 RUN npm run build
 
-FROM node:18.16.0-alpine as prod
+FROM node:19.5.0-alpine as prod
 RUN apk --update add postgresql-client
 
 ARG NODE_ENV=production
