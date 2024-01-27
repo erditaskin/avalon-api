@@ -16,7 +16,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
-    origin: ['http://localhost:3001'],
+    origin: ['http://localhost:3001', 'https://avalon-ui.vercel.app'],
   });
   await app.listen(port, () => {
     console.log('Listening to ', `http://localhost:${port}`);
