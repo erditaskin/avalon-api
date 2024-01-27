@@ -13,6 +13,7 @@ export class OccupationController {
     return this.occupationService.findAll();
   }
 
+  @Public()
   @Get('/seed')
   async seed(): Promise<string> {
     await this.occupationService.seedData();
