@@ -16,10 +16,11 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
+    origin: ['https://avalon-ui.vercel.app', 'http://localhost:3001'],
+    methods: 'GET, HEAD, PUT, POST, DELETE, OPTIONS, PATCH',
+    credentials: true,
+    allowedHeaders:
+      'Origin, X-Requested-With, Content-Type, Accept, Authentication, Access-control-allow-credentials, Access-control-allow-headers, Access-control-allow-methods, Access-control-allow-origin, User-Agent, Referer, Accept-Encoding, Accept-Language, Access-Control-Request-Headers, Cache-Control, Pragma',
   });
   await app.listen(port, () => {
     console.log('Listening to ', `http://localhost:${port}`);
