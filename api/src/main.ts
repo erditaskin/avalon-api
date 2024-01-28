@@ -16,7 +16,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
-    origin: ['https://avalon-ui.vercel.app', 'http://localhost:3001'],
+    origin: ['vercel.app', 'localhost'],
     methods: 'GET, HEAD, PUT, POST, DELETE, OPTIONS, PATCH',
     credentials: true,
     allowedHeaders:
