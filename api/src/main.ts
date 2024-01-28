@@ -13,11 +13,15 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, documentConfig);
   SwaggerModule.setup('swagger', app, document);
-  app.enableCors({
-    allowedHeaders: ['content-type'],
-    origin: 'http://165.232.114.251',
+  const options = {
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
     credentials: true,
-  });
+  };
+
+  app.enableCors(options);
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(port, () => {
     console.log('Listening to ', `http://localhost:${port}`);
